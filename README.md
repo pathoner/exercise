@@ -180,22 +180,22 @@ console.log("fac",fac(3))
     	var isYear = function(year) {
     		if(year % 4 == 0 && year % 100 || year % 400 == 0 ){
     				return 1
-    			} else {
+    		} else {
     				return 0
     		} 
     	}
     	var days = function(value) {
-		    		if(value == 1 ) {
-			    		for(var i = 0; i < mouth - 1; i++) {
-			    			  sum = sum + ping[i] 
-			    		}
-			    		return sum = sum + day
-	    	                } else if (value == 0){
-			    		 for(var i = 0; i < mouth - 1; i++) {
-			    		 	  sum = sum + run[i] 
-			    		 }
-						return sum = sum + day
-			    	}
+		if(value == 1 ) {
+			for(var i = 0; i < mouth - 1; i++) {
+				sum = sum + ping[i] 
+			}
+				return sum = sum + day
+		} else if (value == 0){
+			for(var i = 0; i < mouth - 1; i++) {
+				sum = sum + run[i] 
+			}
+			        return sum = sum + day
+		}
     	}
     	var value = isYear(year)
     	console.log(days(value))
