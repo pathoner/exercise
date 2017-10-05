@@ -137,8 +137,71 @@ console.log("fac",fac(3))
 2. 暂时没想到好作业，下次在说。
 
 
-
-
-
+## 今天是第几天？
+刚开始学习编程的时候，我们总要面对的一个问题就是求闰年，以及今天是多少号？当然了，今天自己试试怎么使用js完成最终效果.<br/>
+思考：<br/>
+1 怎么才能确定今年是不是闰年？<br/>
+2 要确定今天是第几天，需要用月份减1，然后加上日期数<br/>
+``` javascript 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>今天是第几天</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<div class="todo-form">
+        <input id='id-input-todo' type="text">
+        <button id='id-button-add' type="button">点击</button>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	var log = function() {
+	    console.log.apply(console, arguments)
+	}
+	// 用自己实现的 e 替代 document.querySelector
+	// 因为这个东西太长了
+	var e = function(selector) {
+	    return document.querySelector(selector)
+	}
+	var addButton = e('#id-button-add')
+	addButton.addEventListener('click', function(){
+		var todoInput = e('#id-input-todo')
+    	var todo = todoInput.value
+    	var year  = todo.slice(0, 4)  // 获得年份，其实这里应该转成数字
+    	var mouth = 1 * (todo.slice(5, 7)) // 同理 这里获得月份 然后假装转成数字
+    	// console.log(typeof(mouth))
+    	var day = 1 * (todo.slice(8))  // 具体日期
+    	var sum = 0 
+    	var ping = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] // 这两个数组比较聪明 存储了每个月的日子
+    	var run =  [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    	// 求闰年/平年函数
+    	var isYear = function(year) {
+    		if(year % 4 == 0 && year % 100 || year % 400 == 0 ){
+    				return 1
+    			} else {
+    				return 0
+    		} 
+    	}
+    	var days = function(value) {
+		    		if(value == 1 ) {
+			    		for(var i = 0; i < mouth - 1; i++) {
+			    			  sum = sum + ping[i] 
+			    		}
+			    		return sum = sum + day
+	    	                } else if (value == 0){
+			    		 for(var i = 0; i < mouth - 1; i++) {
+			    		 	  sum = sum + run[i] 
+			    		 }
+						return sum = sum + day
+			    	}
+    	}
+    	var value = isYear(year)
+    	console.log(days(value))
+	} )
+</script>
+```
+实现一个输入框，只不过实在终端查看今天是第几天，后边改成弹窗。
 
 
