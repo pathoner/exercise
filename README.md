@@ -204,4 +204,54 @@ console.log("fac",fac(3))
 ```
 实现一个输入框，只不过实在终端查看今天是第几天，后边改成弹窗。
 
+## 字符串练习 
+1.1 字符串前边用0补足
+``` javascript
+var nchar = function(char, n) {
+    var s = ""
+    for (var i = 0; i < n; i++) {
+         s = s + char
+    }
+    return s
+}
+var zfill = function(n, width) {
+    var s = String(n)
+    var len = s.length
+    return nchar("0", width-len) + s
+}
+log("zfill", zfill(2, 4))
+// 测试函数
+var test_zfill = function() {
+    ensure(zfill(1, 4) === '0001', 'zfill 测试 1')
+    ensure(zfill(23, 4) === '0023', 'zfill 测试 2')
+    ensure(zfill(12345, 4) === '12345', 'zfill 测试 3')
+    ensure(zfill(169, 5) === '00169', 'zfill 测试 4')
+}
 
+// 调用测试函数
+test_zfill()
+```
+
+1.2 fillchar字符串进行填充
+var ljust = function(s, width, fillchar) {
+    /*
+    s 是 string
+    width 是 int
+    fillchar 是 长度为 1 的字符串, 默认为空格 ' '
+
+    如果 s 长度小于 width, 则在末尾用 fillchar 填充并返回
+    否则, 原样返回, 不做额外处理
+
+    返回 string 类型
+    */
+    var len = width - s.length
+    return s + nchar(fillchar, len)
+}
+log("ljust",ljust("gua", 7, "&"))
+
+// 测试函数
+var test_ljust = function() {
+    ensure(ljust('gua', 5) === 'gua  ', 'ljust 测试 1')
+    ensure(ljust('guagua', 5) === 'guagua', 'ljust 测试 2')
+    ensure(ljust('gua', 5, '*') === 'gua**', 'ljust 测试 3')
+}
