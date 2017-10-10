@@ -233,6 +233,7 @@ test_zfill()
 ```
 
 1.2 fillchar字符串进行填充
+```javasript
 var ljust = function(s, width, fillchar) {
     /*
     s 是 string
@@ -255,3 +256,4 @@ var test_ljust = function() {
     ensure(ljust('guagua', 5) === 'guagua', 'ljust 测试 2')
     ensure(ljust('gua', 5, '*') === 'gua**', 'ljust 测试 3')
 }
+```
